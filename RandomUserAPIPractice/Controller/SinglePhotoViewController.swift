@@ -8,15 +8,26 @@
 import UIKit
 
 class SinglePhotoViewController: UIViewController {
-
+    
+    var userData: UserData!
+    
     @IBOutlet weak var photoImageView: UIImageView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        photoImageView.layer.cornerRadius = photoImageView.frame.size.width / 2
+        showImage()
+    }
 
-        // Do any additional setup after loading the view.
+    func showImage() {
+        URLSession.shared.dataTask(with: userData.results[0].picture.large!) { (data, response, error) in
+            if let data = data {
+                DispatchQueue.main.async {
+                    self.photoImageView.image = UIImage(data: data)
+                }
+            }
+        }.resume()
     }
     
-
     /*
     // MARK: - Navigation
 
@@ -26,5 +37,4 @@ class SinglePhotoViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }

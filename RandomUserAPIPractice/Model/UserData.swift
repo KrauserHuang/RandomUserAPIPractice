@@ -27,9 +27,9 @@ struct UserData: Codable {
             }
         }
         struct Picture: Codable {
-            let large: String?
-            let medium: String?
-            let thumbnail: String?
+            let large: URL?
+            let medium: URL?
+            let thumbnail: URL?
         }
     }
 }

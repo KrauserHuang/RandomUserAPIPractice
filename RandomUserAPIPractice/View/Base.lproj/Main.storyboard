@@ -145,42 +145,46 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7E-Tu-Fqz">
+                            <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Jla-sT-D2e">
                                 <rect key="frame" x="57" y="128" width="300" height="300"/>
+                                <gestureRecognizers/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="300" id="Cw2-sB-TNS"/>
-                                    <constraint firstAttribute="width" constant="300" id="qdr-Py-6xr"/>
+                                    <constraint firstAttribute="width" constant="300" id="G0t-PU-daE"/>
+                                    <constraint firstAttribute="height" constant="300" id="boz-C0-Nug"/>
                                 </constraints>
-                                <state key="normal" image="Avatar"/>
                                 <connections>
-                                    <action selector="showClearImage:" destination="BVx-zj-cyB" eventType="touchUpInside" id="2yR-kN-lKb"/>
-                                    <segue destination="e1b-Pb-w8n" kind="push" id="sUV-GL-sGN"/>
+                                    <outletCollection property="gestureRecognizers" destination="ef4-WN-sRY" appends="YES" id="3IU-7Z-Uup"/>
                                 </connections>
-                            </button>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="5uX-Yf-RkH"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="5uX-Yf-RkH" firstAttribute="trailing" secondItem="mzd-Lr-r7H" secondAttribute="trailing" constant="20" id="11V-cD-PU4"/>
+                            <constraint firstItem="Jla-sT-D2e" firstAttribute="centerX" secondItem="k7W-fE-kdz" secondAttribute="centerX" id="5Vg-CH-GS4"/>
                             <constraint firstItem="5uX-Yf-RkH" firstAttribute="trailing" secondItem="vQ5-MB-Ngc" secondAttribute="trailing" constant="20" id="7H3-5x-fR1"/>
-                            <constraint firstItem="z7E-Tu-Fqz" firstAttribute="top" secondItem="5uX-Yf-RkH" secondAttribute="top" constant="40" id="EWk-lS-1nr"/>
+                            <constraint firstItem="Jla-sT-D2e" firstAttribute="top" secondItem="5uX-Yf-RkH" secondAttribute="top" constant="40" id="O2Q-gR-Ba3"/>
                             <constraint firstItem="vQ5-MB-Ngc" firstAttribute="top" secondItem="mzd-Lr-r7H" secondAttribute="bottom" constant="30" id="UcD-co-euG"/>
-                            <constraint firstItem="mzd-Lr-r7H" firstAttribute="top" secondItem="z7E-Tu-Fqz" secondAttribute="bottom" constant="20" id="c4n-UB-H9G"/>
+                            <constraint firstItem="mzd-Lr-r7H" firstAttribute="top" secondItem="Jla-sT-D2e" secondAttribute="bottom" constant="20" id="VZr-Rz-E9v"/>
                             <constraint firstItem="mzd-Lr-r7H" firstAttribute="leading" secondItem="5uX-Yf-RkH" secondAttribute="leading" constant="20" id="kvy-GQ-vi1"/>
                             <constraint firstItem="vQ5-MB-Ngc" firstAttribute="leading" secondItem="5uX-Yf-RkH" secondAttribute="leading" constant="20" id="lfS-uz-Kvw"/>
-                            <constraint firstItem="z7E-Tu-Fqz" firstAttribute="centerX" secondItem="k7W-fE-kdz" secondAttribute="centerX" id="zAR-VO-s84"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1z5-44-Sfq"/>
                     <connections>
+                        <outlet property="imageView" destination="Jla-sT-D2e" id="Bow-JC-d0Y"/>
                         <outlet property="nameFirstLabel" destination="U1q-xq-BSE" id="UVS-y8-K9E"/>
                         <outlet property="nameLastLabel" destination="4dU-hV-oW6" id="lj5-ST-1sF"/>
-                        <outlet property="profileImageButton" destination="z7E-Tu-Fqz" id="SIF-Yu-lCm"/>
                         <outlet property="streetNameLabel" destination="kJ8-zy-3uy" id="2yc-Ql-SOa"/>
                         <outlet property="streetNumberLabel" destination="SKt-bC-maf" id="6pl-5w-fQ8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qgb-hd-ZBl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ef4-WN-sRY">
+                    <connections>
+                        <segue destination="e1b-Pb-w8n" kind="show" destinationCreationSelector="showImage:" id="JlN-DJ-xNg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="2297.1014492753625" y="75"/>
         </scene>
@@ -216,16 +220,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Avatar" translatesAutoresizingMaskIntoConstraints="NO" id="gDE-MK-kQ2">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="241" width="414" height="414"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="gDE-MK-kQ2" secondAttribute="height" multiplier="1:1" id="2SW-IT-8OA"/>
+                                    <constraint firstAttribute="width" constant="414" id="9m2-33-jPd"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="dFp-ap-X7R"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="gDE-MK-kQ2" firstAttribute="leading" secondItem="BDK-l9-4uZ" secondAttribute="leading" id="NN8-Nr-ng9"/>
-                            <constraint firstAttribute="trailing" secondItem="gDE-MK-kQ2" secondAttribute="trailing" id="Qry-gH-twf"/>
-                            <constraint firstAttribute="bottom" secondItem="gDE-MK-kQ2" secondAttribute="bottom" id="o0L-jQ-njI"/>
-                            <constraint firstItem="gDE-MK-kQ2" firstAttribute="top" secondItem="BDK-l9-4uZ" secondAttribute="top" id="ybF-Lg-PhE"/>
+                            <constraint firstItem="gDE-MK-kQ2" firstAttribute="centerX" secondItem="BDK-l9-4uZ" secondAttribute="centerX" id="VXC-qB-8Gy"/>
+                            <constraint firstItem="gDE-MK-kQ2" firstAttribute="centerY" secondItem="BDK-l9-4uZ" secondAttribute="centerY" id="YwX-Bs-iZC"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LBJ-Sc-CYA"/>
